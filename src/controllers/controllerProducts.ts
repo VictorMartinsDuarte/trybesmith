@@ -15,6 +15,7 @@ const createProduct = async (req: Request, res: Response) => {
     const newUser = await serviceProducts.createProduct(req.body);
     return res.status(201).json(newUser);
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ message: 'Could not register product' });
   }
 };
