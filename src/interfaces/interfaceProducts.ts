@@ -1,7 +1,9 @@
-interface Products {
+interface IProducts {
+  id?: number;
   name: string;
   amount: string;
-  orderId: string;
+  orderId: number | null;
 }
 
-export default Products;
+export default IProducts;
+export type ProdRegistered = Omit<IProducts, 'orderId'>;
