@@ -7,10 +7,9 @@ const getAll = async (): Promise<IProducts[]> => {
   return products as IProducts[];
 };
 
-const createProduct = async (product: IProducts): Promise<IProducts> => {
-  const { name, amount } = product;
+const createProduct = async ({ name, amount }: IProducts): Promise<IProducts> => {
   const [inserted] = await connection.execute<ResultSetHeader>(
-    'INSERT INTO Trybesmith.Products (name, amout) VALUES (?, ?);',
+    'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?);',
     [name, amount],
   );
   const { insertId: id } = inserted;
