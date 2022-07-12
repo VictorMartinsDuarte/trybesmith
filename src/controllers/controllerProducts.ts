@@ -10,6 +10,16 @@ const getAll = async (_req: Request, res: Response) => {
   }
 };
 
+const createProduct = async (req: Request, res: Response) => {
+  try {
+    const newUser = await serviceProducts.createProduct(req.body);
+    return res.status(201).json(newUser);
+  } catch (error) {
+    return res.status(500).json({ message: 'Could not register product' });
+  }
+};
+
 export default {
   getAll,
+  createProduct,
 };
