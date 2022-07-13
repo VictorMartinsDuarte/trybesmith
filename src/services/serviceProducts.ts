@@ -7,8 +7,8 @@ const getAll = async () => {
 };
 
 const createProduct = async ({ name, amount }: IProducts) => {
-  const newUser = await modelProducts.createProduct({ name, amount });
-  return newUser;
+  const newProduct = await modelProducts.createProduct({ name, amount });
+  return newProduct;
 };
 
 export default {

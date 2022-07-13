@@ -13,8 +13,8 @@ const createProduct = async ({ name, amount }: IProducts): Promise<IProducts> =>
     [name, amount],
   );
   const { insertId: id } = inserted;
-  const newUser: IProducts = { id, name, amount };
-  return newUser;
+  const newProduct: IProducts = { id, name, amount };
+  return newProduct;
 };
 
 export default {
