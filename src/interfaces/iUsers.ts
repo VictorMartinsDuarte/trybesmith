@@ -1,4 +1,4 @@
-interface iUsers {
+interface IUsers {
   id?: number;
   username: string;
   classe: string;
@@ -6,4 +6,4 @@ interface iUsers {
   password: string;
 }
 
-export default iUsers;
+export default IUsers;
