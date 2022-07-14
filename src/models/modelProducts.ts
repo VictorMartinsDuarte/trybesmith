@@ -17,6 +17,13 @@ const createProduct = async ({ name, amount }: IProducts): Promise<IProducts> =>
   return newProduct;
 };
 
+const updateProduct = async (productsIds: number[], orderId: number): Promise<void> => {
+  productsIds.forEach(async (id) => {
+    await connection.execute('UPDATE Trybesmith.Products SET orderId=? WHERE id=?;', [orderId, id]);
+  });
+};
+
+export { updateProduct };
 export default {
   getAll,
   createProduct,

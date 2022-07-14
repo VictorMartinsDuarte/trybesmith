@@ -24,7 +24,20 @@ const amountValid = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
+const productsIdsValid = async (req: Request, res: Response, next: NextFunction) => {
+  const { productsIds } = req.body;
+  if (!productsIds) return res.status(400).json({ message: '"productsIds" is required' });
+  if (productsIds.length < 1) { 
+    return res.status(422).json({ message: '"productsIds" must include only numbers' });
+  }
+  if (!Array.isArray(productsIds)) {
+    return res.status(422).json({ message: '"productsIds" must be an array' });
+  }
+  next();
+};
+
 export {
   nameValid,
   amountValid,
+  productsIdsValid,
 };

@@ -4,4 +4,8 @@ interface IOrders {
   productsIds: number[];
 }
 
+export interface IOrderId {
+  id: number;
+}
+
 export default IOrders;

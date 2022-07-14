@@ -1,5 +1,6 @@
-import { SignOptions, sign } from 'jsonwebtoken';
+import { SignOptions, sign, decode } from 'jsonwebtoken';
 import configJWT from '../config/configJWT';
+import IJwt from '../interfaces/iToken';
 
 const { secret, configs: { expiresIn } } = configJWT;
 const loginConfigs: SignOptions = {
@@ -12,4 +13,10 @@ const tokenJWT = (username: string) => {
   return token;
 };
 
+const decodeToken = async (token: string): Promise<IJwt> => {
+  const tokenDecoded = await decode(token);
+  return tokenDecoded as IJwt;
+};
+
+export { decodeToken };
 export default tokenJWT;

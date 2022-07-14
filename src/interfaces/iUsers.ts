@@ -6,4 +6,9 @@ interface IUsers {
   password: string;
 }
 
+export interface IUserId {
+  id?: number;
+  userId: number;
+}
+
 export default IUsers;
