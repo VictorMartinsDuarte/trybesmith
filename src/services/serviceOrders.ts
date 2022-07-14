@@ -14,6 +14,7 @@ const getAll = async () => {
 };
 
 const createOrder = async (productsIds: number[], token: string) => {
+  console.log(token);
   const decodedToken = await decodeToken(token);
   const { name } = decodedToken;
   const [order] = await modelUsers.getUserId(name);
