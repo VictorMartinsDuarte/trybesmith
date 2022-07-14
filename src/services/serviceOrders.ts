@@ -2,7 +2,6 @@ import modelOrders from '../models/modelOrders';
 import { updateProduct } from '../models/modelProducts';
 import modelUsers from '../models/modelUsers';
 import { decodeToken } from '../utils/tokenJWT';
-import { toke, toke2, toke3 } from '../utils/toke';
 
 const getAll = async () => {
   const orders = await modelOrders.getAll();
@@ -15,7 +14,7 @@ const getAll = async () => {
 };
 
 const createOrder = async (productsIds: number[], token: string) => {
-  const decodedToken = await decodeToken(toke3);
+  const decodedToken = await decodeToken(token);
   const { name } = decodedToken;
   const [order] = await modelUsers.getUserId(name);
   const orderId = await modelOrders.createOrder(order.id);
