@@ -3,8 +3,9 @@ import tokenJWT from '../utils/tokenJWT';
 
 const getUser = async (username: string, password: string) => {
   const user = await modelLogin.getUser(username, password);
-  const token = tokenJWT(username);
-  return token;
+  if (user.length < 1) return undefined;
+  const userToken = tokenJWT(username);
+  return userToken;
 };
 
 export default {
