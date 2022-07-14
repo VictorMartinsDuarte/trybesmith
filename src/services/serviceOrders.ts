@@ -16,10 +16,10 @@ const getAll = async () => {
 const createOrder = async (productsIds: number[], token: string) => {
   const decodedToken = await decodeToken(token);
   const { name } = decodedToken;
-  const [{ userId }] = await modelUsers.getUserId(name);
-  const orderId = await modelOrders.createOrder(userId);
+  const [order] = await modelUsers.getUserId(name);
+  const orderId = await modelOrders.createOrder(order.id);
   await updateProduct(productsIds, orderId.id);
-  const result = { userId, productsIds };
+  const result = { userId: order.id, productsIds };
   return result;
 };
 

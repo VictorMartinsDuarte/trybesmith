@@ -12,8 +12,7 @@ const getAll = async (): Promise<IOrders[]> => {
 
 const createOrder = async (userId: number): Promise<IOrderId> => {
   const [response] = await connection
-    .execute<ResultSetHeader>(`INSERT INTO Trybesmith.Orders (userId)
-    VALUES (?);`, [userId]);
+    .execute<ResultSetHeader>('INSERT INTO Trybesmith.Orders (userId) VALUES (?);', [userId]);
   const { insertId: id } = response;
   const orderId = { id };
   return orderId as IOrders;
