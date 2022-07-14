@@ -1,7 +1,7 @@
 interface IJwt {
-  sub: string;
-  name: string;
+  data: string;
   iat: number;
+  exp: number;
 }
 
 export default IJwt; 
