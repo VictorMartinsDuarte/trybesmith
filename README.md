@@ -1,3 +1,5 @@
+*** Em Construção ***
+
 # Boas vindas ao repositório do projeto Trybesmith!
 
 Para realizar o projeto, atente-se a cada passo descrito a seguir, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
